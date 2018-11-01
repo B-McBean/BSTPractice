@@ -5,6 +5,8 @@
 #define BST_H
 #include <iostream>
 
+using namespace std;
+
 template <typename T>
 struct Node {
     T value;
@@ -28,36 +30,58 @@ class BinarySearchTree {
     private:
         int size_;
         Node<T>* root_;
+
+//helper function (min)
+T getMinimumR(Node<T>* r){
+if (r->left==nullptr){
+	return r->value;
+}
+else return getMinimumR(r->left);
+}
+
+//helper function (max)
+T getMaximumR(Node<T>* r){
+if (r->right==nullptr){
+	return r->value;
+}
+else return getMaximumR(r->right);
+}
 };
 
 // Default constructor
 template <typename T>
 BinarySearchTree<T>::BinarySearchTree() {
-    // TO BE COMPLETED
+	size_=0;
+	root_=nullptr;
 }
 
 // Returns the maximum in the BST
 template <typename T>
 T BinarySearchTree<T>::getMinimum() {
-    // TO BE COMPLETED
+    return getMinimumR(root_);
 }
 
 // Returns the minimum in the BST
 template <typename T>
 T BinarySearchTree<T>::getMaximum() {
-    // TO BE COMPLETED
+    return getMaximumR(root_);
 }
 
 // Prints the BST using an preorder traversal.
 template <typename T>
 void BinarySearchTree<T>::preorderPrint(Node<T>* nodeptr) {
-    // TO BE COMPLETED
+    
 }
 
 // Prints the BST using an inorder traversal.
 template <typename T>
 void BinarySearchTree<T>::inorderPrint(Node<T>* nodeptr) {
-    // TO BE COMPLETED
+    if (nodeptr==nullptr) return;
+    else {
+	inorderPrint(nodeptr->left);
+	cout << nodeptr->value;
+	inorderPrint(nodeptr->right);
+  }
 }
 
 // Prints the BST using an postorder traversal.
