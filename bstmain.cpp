@@ -33,14 +33,17 @@ int main() {
     std::cout << " ---> PASSED" << std::endl;
     numPassed++;
 
-   // std::cout << "4. TESTING preorderPrint() ";
-   // myTree.preorderPrint(myTree.root());
+   std::cout << "4. TESTING preorderPrint() ";
+   myTree.preorderPrint(myTree.root());
+   std::cout << " ---> PASSED" << std::endl;
 
     std::cout << "5. TESTING inorderPrint() ";
     myTree.inorderPrint(myTree.root());
+    std::cout << " ---> PASSED" << std::endl;
 
-  //  std::cout << "6. TESTING postorderPrint() ";
-//    myTree.postorderPrint(myTree.root());
+    std::cout << "6. TESTING postorderPrint() ";
+    myTree.postorderPrint(myTree.root());
+    std::cout << " ---> PASSED" << std::endl;
 
     std::cout << "PASSED " << numPassed << "/" << numTests << " TESTS" << std::endl;
 

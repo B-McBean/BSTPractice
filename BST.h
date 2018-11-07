@@ -70,24 +70,28 @@ T BinarySearchTree<T>::getMaximum() {
 // Prints the BST using an preorder traversal.
 template <typename T>
 void BinarySearchTree<T>::preorderPrint(Node<T>* nodeptr) {
-    
+   if (nodeptr==nullptr) return;
+   cout << nodeptr->value;
+   preorderPrint(nodeptr->left);
+   preorderPrint(nodeptr->right);
 }
 
 // Prints the BST using an inorder traversal.
 template <typename T>
 void BinarySearchTree<T>::inorderPrint(Node<T>* nodeptr) {
     if (nodeptr==nullptr) return;
-    else {
-	inorderPrint(nodeptr->left);
-	cout << nodeptr->value;
-	inorderPrint(nodeptr->right);
-  }
+    inorderPrint(nodeptr->left);
+    cout << nodeptr->value;
+    inorderPrint(nodeptr->right);
 }
 
 // Prints the BST using an postorder traversal.
 template <typename T>
 void BinarySearchTree<T>::postorderPrint(Node<T>* nodeptr) {
-    // TO BE COMPLETED
+   if (nodeptr==nullptr) return;
+   preorderPrint(nodeptr->left);
+   preorderPrint(nodeptr->right);
+   cout << nodeptr->value;
 }
 
 
